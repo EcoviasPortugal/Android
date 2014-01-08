@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EcoviasDePortugal</string>
+    <string name="action_settings">Settings</string>
+    <string name="longitude">longitude</string>
+	<string name="latitude">latitude</string>
+	<string name="buttonloc">localização</string>
+	
+</resources>
