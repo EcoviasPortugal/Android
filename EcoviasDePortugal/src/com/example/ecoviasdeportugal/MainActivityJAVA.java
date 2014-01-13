@@ -7,6 +7,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,6 +46,19 @@ public class MainActivityJAVA extends Activity implements LocationListener {
         
         		); 
         
+        Button botao2 = (Button) findViewById (R.id.vermapa);
+        botao2.setOnClickListener(new OnClickListener() {
+        	public void onClick (View vista) {
+        		startActivity(new Intent (MainActivityJAVA.this,Mapa.class)); //inicia a actividade do mapa por cima da outra que esteja a correr (localização), sem a destruir, voltando a ela quando esta termina.
+        		
+        		
+        	}
+        }
+        
+        		); 
+        
+        
+        
         
     }
 
@@ -81,7 +95,7 @@ public class MainActivityJAVA extends Activity implements LocationListener {
 		// TODO Auto-generated method stub
 		
 		if (localizacao == null) {
-			latitude.setText (getString (R.string.sem_valor)); //coloca a textview da varia´vel latitude igual à string da variável sem_valor
+			latitude.setText ("desorientado"); //coloca a string da textview da variável latitude igual à string da variável sem_valor
 			longitude.setText (getString (R.string.sem_valor));
 						 
 		}
