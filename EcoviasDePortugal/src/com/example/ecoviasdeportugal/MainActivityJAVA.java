@@ -49,7 +49,26 @@ public class MainActivityJAVA extends Activity implements LocationListener {
         Button botao2 = (Button) findViewById (R.id.vermapa);
         botao2.setOnClickListener(new OnClickListener() {
         	public void onClick (View vista) {
-        		startActivity(new Intent (MainActivityJAVA.this,Mapa.class)); //inicia a actividade do mapa por cima da outra que esteja a correr (localização), sem a destruir, voltando a ela quando esta termina.
+        		
+        		double latitudePorDefeito = -9.00d; //valores por defeito se o GPS nao devolver nada
+        		double longitudePorDefeito = 38.00d;
+        		Intent intencao = new Intent (MainActivityJAVA.this,Mapa.class);
+        		
+        			
+        		if (latitude.getText().equals(getString (R.string.sem_valor))) { // se a latitude nao tiver valor, não executa o intent
+        			intencao.putExtra("longitudemapa", longitudePorDefeito);
+            		intencao.putExtra("latitudemapa", latitudePorDefeito);
+            		}
+        		
+        		else {     			
+        			            		
+            		intencao.putExtra("longitudemapa", Double.valueOf(longitude.getText().toString()));//como o getText devolve uma charsequence temos de converter o seu conteudo em double
+            		intencao.putExtra("latitudemapa", Double.valueOf(latitude.getText().toString()));
+            		            		
+        		}
+        		startActivity(intencao); //inicia a actividade do mapa por cima da outra que esteja a correr (localização), sem a destruir, voltando a ela quando esta termina.
+        		
+        			
         		
         		
         	}
